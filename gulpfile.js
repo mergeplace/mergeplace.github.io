@@ -44,6 +44,14 @@ gulp.task('resources', function () {
         .pipe(gulp.dest(options.dist));
 });
 
+gulp.task('deploy', function () {
+
+    gulp.src([
+            options.dist + '**/*'
+        ], { base: options.dist })
+        .pipe(gulp.dest('../merge.place.web/'));
+});
+
 /* HTML */
 
 gulp.task('html', function () {
