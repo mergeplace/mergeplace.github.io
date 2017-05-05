@@ -1,0 +1,30 @@
+@import "../../_base/imports/bootstrap";
+@import "../../_base/variables/variables";
+
+$block-name: "merge-header";
+
+.#{$block-name} {
+  &__container {
+    @include make-container();
+  }
+  &__row {
+    @include make-row();
+  }
+  &__logo {
+    float: left;
+    width: 160px;
+    height: 60px;
+    margin: 0;
+    background-image: url(resources/images/logo-white.svg);
+    background-size: cover;
+    text-indent: -10000px;
+    transition: width .2s ease, height .2s ease;
+  }
+}
+
+@media (min-width: breakpoint-min(lg)) {
+  .#{$block-name} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
