@@ -54,7 +54,8 @@ $block-name: "merge-hero";
 
     &::before {
       content: "";
-      display: inline-block;
+      display: block;
+      float: left;
       width: 20px;
       height: 20px;
       margin-right:16px;
@@ -84,11 +85,10 @@ $block-name: "merge-hero";
       padding-top: 16px;
       align-items: flex-start;
     }
-    &__bottom {
-      &__contacts {
-        column-count: 2;
-      }
+    &__contact {
+      margin-bottom: 16px;
     }
+
   }
 }
 
