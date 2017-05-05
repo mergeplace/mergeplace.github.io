@@ -2,7 +2,7 @@
 
 
 var options = {
-    src: 'src/',
+    src: './src/',
     dist: './dist/',
     resources: 'resources/'
 };
@@ -44,6 +44,16 @@ gulp.task('resources', function () {
         .pipe(gulp.dest(options.dist));
 });
 
+/* HTML */
+
+gulp.task('html', function () {
+
+    gulp.src([
+            options.src + '*.html'
+        ], { base: options.src })
+        .pipe(gulp.dest(options.dist));
+});
+
 /* Javascript */
 
 //gulp.task('libs', function () {
@@ -66,6 +76,8 @@ gulp.task('scripts', function () {
 
 gulp.task('watch', function () {
     gulp.watch([options.src + '**/*.scss'], ['sass']);
+    gulp.watch([options.src + '**/*.html'], ['html']);
+    gulp.watch([options.resources + '**/*'], ['resources']);
     gulp.watch([options.src + '**/*.js'], ['scripts']);
 });
 
@@ -82,4 +94,4 @@ gulp.task('ampify', function () {
 
 /* Default */
 
-gulp.task('default', ['sass', 'scripts', 'resources']);
+gulp.task('default', ['html','sass', 'scripts', 'resources']);
