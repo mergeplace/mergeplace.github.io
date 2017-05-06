@@ -28,10 +28,3 @@ fs.readFile(src, 'utf8', function(err, html){
         console.log('error: '+err);
     });
 });
-
-
-
-//ampify(src, options)
-//    .then (function(res){
-//        console.log(res)
-//    });
