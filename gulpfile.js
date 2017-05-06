@@ -96,8 +96,8 @@ gulp.task('ampify', function () {
     gulp.src([
             options.dist + 'index.html'
         ], { base: '.' })
-        .pipe(ampify('index.html'))
-        .pipe(gulp.dest(options.dist+ 'amp/'));
+        .pipe(ampify('amp-index.html'))
+        .pipe(gulp.dest(options.dist));
 });
 
 /* Default */
