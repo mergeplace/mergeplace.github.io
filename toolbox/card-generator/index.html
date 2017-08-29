@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESIDENT CARD</title>
+</head>
+<body>
+
+<style>
+
+    @page {
+        size: auto;
+        margin: 0;
+    }
+
+
+    @media print
+    {
+        .no-print, .no-print *
+        {
+            display: none !important;
+        }
+    }
+
+    .div {
+        width: 1190px;
+        height: 1684px;
+    }
+
+    .a4 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    .barcode--top {
+        position: absolute;
+        top: 50px;
+        left: 80px;
+    }
+
+    .barcode--card {
+        position: absolute;
+        top: 1240px;
+        left: 630px;
+        transform: rotate(-90deg);
+    }
+
+</style>
+
+<!--<img class="a4" src="resources/form-test.png"/>-->
+<img class="a4" src="resources/form.png"/>
+
+<div class="no-print">
+    <input value="10000" type="text" id="input" onkeyup="generateBarcode()">
+    <button onclick="input.value++;generateBarcode()">+</button>
+    <br>
+</div>
+
+<!--<div class="div">-->
+    <img id="barcode" class="barcode--top"></img>
+    <img id="barcode2" class="barcode--card"></img>
+<!--</div>-->
+
+<script src="https://cdn.jsdelivr.net/jsbarcode/3.5.8/JsBarcode.all.min.js"></script>
+<script>
+
+    var input = document.getElementById('input');
+
+    function generateBarcode() {
+        console.log(input.value);
+        JsBarcode("#barcode", input.value, {
+            format: "CODE39",
+            width: 2,
+            height: 80
+        });
+
+        JsBarcode("#barcode2", input.value, {
+            format: "CODE39",
+            width: 2,
+            height: 80
+        });
+    }
+
+    if(window.location.hash) {
+        JsBarcode("#barcode", window.location.hash.substring(1), {
+            format: "CODE39",
+            width: 2,
+            height: 80
+        });
+
+        JsBarcode("#barcode2", window.location.hash.substring(1), {
+            format: "CODE39",
+            width: 2,
+            height: 80
+        });
+
+    }
+
+</script>
+</body>
+</html>
