@@ -62,8 +62,8 @@
 <img class="a4" src="form.png"/>
 
 <div class="no-print">
-    <input value="10000" type="text" id="input" onkeyup="generateBarcode()">
-    <button onclick="input.value++;generateBarcode()">+</button>
+    <input value="10000" type="text" id="input" onkeyup="generateBarcode(input.value)">
+    <button onclick="input.value++;generateBarcode(input.value)">+</button>
     <br>
 </div>
 
@@ -77,15 +77,14 @@
 
     var input = document.getElementById('input');
 
-    function generateBarcode() {
-        console.log(input.value);
-        JsBarcode("#barcode", input.value, {
+    function generateBarcode(target) {
+        JsBarcode("#barcode", target, {
             format: "CODE39",
             width: 2,
             height: 80
         });
 
-        JsBarcode("#barcode2", input.value, {
+        JsBarcode("#barcode2", target, {
             format: "CODE39",
             width: 2,
             height: 80
@@ -93,18 +92,7 @@
     }
 
     if(window.location.hash) {
-        JsBarcode("#barcode", window.location.hash.substring(1), {
-            format: "CODE39",
-            width: 2,
-            height: 80
-        });
-
-        JsBarcode("#barcode2", window.location.hash.substring(1), {
-            format: "CODE39",
-            width: 2,
-            height: 80
-        });
-
+        generateBarcode(window.location.hash.substring(1));
     }
 
 </script>
