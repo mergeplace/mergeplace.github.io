@@ -8,6 +8,7 @@ $block-name: "merge-hero";
   color: $color-white;
   &__container {
     @include make-container();
+    box-sizing: border-box;
   }
   &__row {
     @include make-row();
@@ -26,7 +27,8 @@ $block-name: "merge-hero";
     }
   }
   &__hero {
-    margin: 60px 0;
+    @include make-col-ready();
+    margin: 40px 0;
     display: flex;
     align-items: center;
     padding: 0 16px;
@@ -40,6 +42,7 @@ $block-name: "merge-hero";
     }
   }
   &__bottom {
+    @include make-col-ready();
     padding-left: 16px;
   }
   &__contact {

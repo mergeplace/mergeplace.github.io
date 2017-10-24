@@ -57,7 +57,7 @@ gulp.task('deploy', function () {
 gulp.task('html', function () {
 
     gulp.src([
-            options.src + '*.html'
+            options.src + '**/*.html'
         ], { base: options.src })
         .pipe(gulp.dest(options.dist));
 });
@@ -87,17 +87,6 @@ gulp.task('watch', function () {
     gulp.watch([options.src + '**/*.html'], ['html']);
     gulp.watch([options.resources + '**/*'], ['resources']);
     gulp.watch([options.src + '**/*.js'], ['scripts']);
-});
-
-
-/* Ampify */
-
-gulp.task('ampify', function () {
-    gulp.src([
-            options.dist + 'index.html'
-        ], { base: '.' })
-        .pipe(ampify('amp-index.html'))
-        .pipe(gulp.dest(options.dist));
 });
 
 /* Default */

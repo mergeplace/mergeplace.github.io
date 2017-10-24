@@ -6,9 +6,11 @@ $block-name: "merge-header";
 .#{$block-name} {
   &__container {
     @include make-container();
+    box-sizing: border-box;
   }
   &__row {
     @include make-row();
+    justify-content: space-between;
   }
   &__logo {
     float: left;
@@ -19,6 +21,25 @@ $block-name: "merge-header";
     background-size: cover;
     text-indent: -10000px;
     transition: width .2s ease, height .2s ease;
+  }
+  &__nav {
+    margin: 0 15px;
+    font-family: $base-font;
+    list-style-type: none;
+    display: flex;
+    align-self: center;
+    &__item {
+      color: $color-merge-cyan;
+      margin: 0 0 0 10px;
+    }
+    &__link {
+      &:link {
+        color: $color-merge-cyan;
+      }
+      &:hover, &:visited {
+        color: $color-merge-cyan;
+      }
+    }
   }
 }
 

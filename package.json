@@ -17,9 +17,9 @@
     "ampify": "^0.2.6",
     "animate.scss": "0.0.6",
     "autoprefixer-core": "^5.2.1",
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "^4.0.0-beta",
     "csswring": "^3.0.5",
-    "gulp": "^3.9.0",
+    "gulp": "npm ^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^5.0.0",
     "gulp-consolidate": "^0.1.2",
@@ -30,6 +30,7 @@
     "html-to-amp": "^2.0.2",
     "jquery": "^3.1.1",
     "opn": "^4.0.2",
+    "popper.js": "^1.12.5",
     "slick-carousel": "^1.6.0"
   },
   "dependencies": {
