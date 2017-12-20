@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESIDENT CARD</title>
+</head>
+<body>
+
+<style>
+
+    @page {
+        size: auto;
+        margin: 0;
+    }
+
+
+    @media print
+    {
+        .no-print, .no-print *
+        {
+            display: none !important;
+        }
+    }
+
+    .div {
+        width: 1190px;
+        height: 1684px;
+    }
+
+    .a4 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    .barcode--top {
+        position: absolute;
+        top: 50px;
+        left: 80px;
+    }
+
+    .barcode--card__wrap {
+        position: absolute;
+        top: 1230px;
+        left: 610px;
+        width: 308px;
+        height: 130px;
+        transform: rotate(-90deg);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .barcode--card {
+        /*transform: rotate(-90deg);*/
+    }
+
+</style>
+
+<img class="a4" src="form.png"/>
+
+<div class="no-print">
+    <input value="10000" type="text" id="input" onkeyup="generateBarcode(input.value)">
+    <button onclick="input.value++;generateBarcode(input.value)">+</button>
+    <br>
+</div>
+
+<img id="barcode" class="barcode--top"></img>
+<div class="barcode--card__wrap">
+    <img id="barcode2" class="barcode--card"></img>
+</div>
+
+<script src="https://cdn.jsdelivr.net/jsbarcode/3.5.8/JsBarcode.all.min.js"></script>
+<script>
+
+    var input = document.getElementById('input');
+
+    function generateBarcode(target) {
+        JsBarcode("#barcode", target, {
+            format: "CODE39",
+            width: 2,
+            height: 80
+        });
+
+        JsBarcode("#barcode2", target, {
+            format: "CODE39",
+            width: 2,
+            height: 80
+        });
+    }
+
+    if(window.location.hash) {
+        generateBarcode(window.location.hash.substring(1));
+    }
+
+</script>
+</body>
+</html>
