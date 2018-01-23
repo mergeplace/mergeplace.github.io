@@ -76,6 +76,9 @@ $block-name: "merge-hero";
     &--phone {
       &::before { background-image: url(resources/images/icon-phone.svg)}
     }
+    &--telegram {
+      &::before { background-image: url(resources/images/icon-telegram.svg)}
+    }
   }
 
 }
