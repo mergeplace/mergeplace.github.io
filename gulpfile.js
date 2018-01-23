@@ -13,7 +13,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     postcss = require('gulp-postcss'),
     opn = require('opn'),
-    connect = require('gulp-connect'),
+    //connect = require('gulp-connect'),
     autoprefixer = require('autoprefixer-core');
     //ampify = require('ampify');
 
